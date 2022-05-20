@@ -1,20 +1,7 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
-class customer{
-private:
-  int custId;
-  string custName;
-  string custAdress;
-  string custGender;
-  string custEmail;
-
-public:
-  void setDetails
-};
-int main() {
-  
+int main(){
+  cout<<"Hello"<<endl;
   return 0;
-
 }
