@@ -1,0 +1,139 @@
+class Employee{
+protected:
+int empID;
+char empUserName[15];
+char empPassword[15];
+char empJobRole[15];
+public:
+Employee();
+Employee(int eID,const char uName[],const char Pass[],const char role[]);
+~Employee();
+int getEmployeeID();
+void displayDetails();
+};
+
+#include "Employee.h"
+class AreaManager : public Employee{
+private:
+
+char areaManagerName[20];
+char location[20];
+
+public:
+
+AreaManager();
+AreaManager(const char name[],const char area[],int ID,const char uName[],const char pass[],char const role[]);
+~AreaManager();
+void displayDetails();
+};
+
+#include "Employee.h"
+class Administrator : public Employee{
+private:
+char adminName[15];
+public:
+Administrator();
+Administrator(const char name[],int id,const char uname[],const char pass[],const char role[]);
+~Administrator();
+void displayDetails();
+};
+
+#include "Employee.h"
+#include "cstring"
+#include <iostream>
+using namespace std;
+
+Employee::Employee(){
+  empID = 0;
+  strcpy(empUserName,"no name");
+  strcpy(empPassword,"no password");
+  strcpy(empJobRole,"no job");
+}
+
+Employee::Employee(int ID,const char uName[],const char Pass[],const char role[]){
+  empID = ID;
+  strcpy(empUserName,uName);
+  strcpy(empPassword,Pass);
+  strcpy(empJobRole,role);
+  
+}
+
+int Employee::getEmployeeID(){
+  return empID;
+}
+
+void Employee::displayDetails(){
+  
+  cout<<"EmployeeID ID is ; "<<empID<<endl;
+  cout<<"Employee userName is ; "<<empUserName<<endl;
+  cout<<"AEployee Password is ; "<<empPassword<<endl;
+  cout<<"Employee JobRole is ; "<<empJobRole<<endl;
+}
+
+Employee::~Employee(){
+  cout<<"Employee Destroy"<<endl;
+}
+
+#include "AreaManager.h"
+#include "cstring"
+#include <iostream>
+using namespace std;
+
+AreaManager::AreaManager(){
+  strcpy(areaManagerName," No name ");
+  strcpy(location,"no location");
+}
+
+AreaManager::AreaManager(const char name[],const char area[],int ID,const char uName[],const char pass[],char const role[]){
+  strcpy(areaManagerName,name);
+  strcpy(location,area);
+  empID = ID;
+  strcpy(empUserName,uName);
+  strcpy(empPassword,pass);
+  strcpy(empJobRole,role);
+}
+
+void AreaManager::displayDetails(){
+  cout<<"Area Manager Name is : "<<areaManagerName<<endl;
+  cout<<"Area Manager working location is : "<<location<<endl;
+  cout<<"Area Manager ID is ; "<<empID<<endl;
+  cout<<"Area Manager userName is ; "<<empUserName<<endl;
+  cout<<"Area Manager Password is ; "<<empPassword<<endl;
+  cout<<"Area Manager JobRole is ; "<<empJobRole<<endl;
+}
+
+AreaManager::~AreaManager(){
+  cout<<"Area Manager destroy"<<endl;
+}
+
+
+#include "Administrator.h"
+#include "cstring"
+#include <iostream>
+using namespace std;
+
+Administrator::Administrator(){
+  strcpy(adminName,"no name");
+}
+
+Administrator::Administrator(const char name[],int id,const char uname[],const char pass[],const char role[]){
+  strcpy(adminName,name);
+  empID = id;
+  strcpy(empUserName,uname);
+  strcpy(empPassword,pass);
+  strcpy(empJobRole,role);
+}
+
+Administrator::~Administrator(){
+  cout<<"Administrator Destroy"<<endl;
+}
+
+void Administrator::displayDetails(){
+  cout<<"Admin Name is : "<<adminName<<endl;
+  cout<<"Admin ID is ; "<<empID<<endl;
+  cout<<"Admin userName is ; "<<empUserName<<endl;
+  cout<<"Admin Password is ; "<<empPassword<<endl;
+  cout<<"Admin JobRole is ; "<<empJobRole<<endl;
+}
+
+
